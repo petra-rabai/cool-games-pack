@@ -70,6 +70,22 @@
     <Content Include="index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="src\img\logo-transparent.png" />
+    <Content Include="src\pages\game.html" />
+    <Content Include="src\pages\login.html" />
+    <Content Include="src\pages\maintenance.html" />
+    <Content Include="src\pages\registration.html" />
+    <Content Include="src\pages\start.html" />
+    <Content Include="src\scripts\game.js" />
+    <Content Include="src\scripts\login.js" />
+    <Content Include="src\scripts\main.js" />
+    <Content Include="src\scripts\registration.js" />
+    <Content Include="src\scripts\start.js" />
+    <Content Include="src\styles\game.css" />
+    <Content Include="src\styles\login.css" />
+    <Content Include="src\styles\main.css" />
+    <Content Include="src\styles\registration.css" />
+    <Content Include="src\styles\start.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +100,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

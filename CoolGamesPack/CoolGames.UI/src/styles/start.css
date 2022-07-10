@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+
+body {
+    background-color: bisque;
+    font-family: 'Macondo', cursive;
+}
+
+#hero-image{
+    height: 30%;
+    width: 30%;
+}
+
+h1{
+    text-align: center;
+}
+
+.menu-btn{
+    border: 3px solid black;
+    margin-right: 4em;
+}
+
+#start-footer{
+    text-align: center; 
+}
+#start-description{
+    margin-top: 8em;
+    text-align: center; 
+    font-size: 20px;
+}
