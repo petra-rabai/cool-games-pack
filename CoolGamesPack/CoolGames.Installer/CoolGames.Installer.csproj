@@ -47,6 +47,7 @@
     <Compile Include="Helpers\FileSystemHelper.cs" />
     <Compile Include="Helpers\HddHelper.cs" />
     <Compile Include="Helpers\IFileSystemHelper.cs" />
+    <Compile Include="Helpers\IHddHelper.cs" />
     <Compile Include="Helpers\Models\Hdd.cs" />
     <Compile Include="Processes\Install.cs" />
     <Compile Include="Processes\UnInstall.cs" />

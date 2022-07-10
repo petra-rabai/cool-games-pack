@@ -5,7 +5,7 @@ using CoolGames.Installer.Helpers.Models;
 
 namespace CoolGames.Installer.Helpers
 {
-	public class HddHelper
+	public class HddHelper : IHddHelper
 	{
 		private readonly IFileSystemHelper _fileSystemHelper;
 
@@ -21,37 +21,44 @@ namespace CoolGames.Installer.Helpers
 		private IDriveInfoFactory _driveInfoFactory;
 		private IDriveInfo[] _driveInfoCollection;
 
-		public List<Hdd> GetHddListFromDriveInfos()
+		public void InitializeListofHdds()
+		{
+			HddList = GetHddListFromDriveInfos();
+		}
+
+		public string SearchDefaultDrive()
+		{
+			List<Hdd> hdds = GetHddListFromDriveInfos();
+			int hddCount = hdds.Count;
+			int hddSize = hdds[0].FreeSpace;
+
+			for (int i = 0; i < hddCount; i++)
+			{
+				if (hdds[i].FreeSpace > hddSize)
+				{
+					DefaultHddName = hdds[i].Name;
+				}
+			}
+
+			return DefaultHddName;
+		}
+
+		private List<Hdd> GetHddListFromDriveInfos()
 		{
 			_driveInfoCollection = GetDriveInfosFromFileSystem();
 
 			foreach (IDriveInfo drive in _driveInfoCollection)
 			{
-				Hdd hdd = new Hdd();
-				hdd.Name = drive.Name;
-				hdd.FreeSpace = Convert.ToInt32(drive.AvailableFreeSpace);
-				
+				Hdd hdd = new Hdd
+				{
+					Name = drive.Name,
+					FreeSpace = Convert.ToInt32(drive.AvailableFreeSpace)
+				};
+
 				HddList.Add(hdd);
 			}
 
 			return HddList;
-		}
-
-		public string SearchDefaultDrive()
-		{
-			List<Hdd> _hdds = GetHddListFromDriveInfos();
-			int hddCount = _hdds.Count;
-			int hddSize = _hdds[0].FreeSpace;
-
-			for (int i = 0; i < hddCount; i++)
-			{
-				if (_hdds[i].FreeSpace > hddSize)
-				{
-					DefaultHddName = _hdds[i].Name;
-				}
-			}
-
-			return DefaultHddName;
 		}
 
 		private IDriveInfo[] GetDriveInfosFromFileSystem()
